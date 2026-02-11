@@ -9,16 +9,11 @@ class Article(models.Model):
     title = models.CharField(max_length=256, verbose_name='Название')
     text = models.TextField(verbose_name='Текст')
     published_at = models.DateTimeField(verbose_name='Дата публикации')
-    image = models.ImageField(null=True, blank=True, verbose_name='Изображение',)
-    
-    # Связь многие-ко-многим с тегами через модель Scope
-    # related_name='scopes' используется в шаблоне для доступа к связям
-    scopes = models.ManyToManyField('Tag', through='Scope', related_name='articles')
+    image = models.ImageField(null=True, blank=True, verbose_name='Изображение', )
 
     class Meta:
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
-        # Сортировка статей по дате публикации (новые первые)
         ordering = ['-published_at']
 
     def __str__(self):
@@ -47,7 +42,8 @@ class Scope(models.Model):
     Поле is_main указывает на основной раздел статьи.
     """
     # Связь с статьёй (обязательная)
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='article_scopes')
+    # related_name='scopes' позволяет использовать article.scopes.all() для получения Scope объектов
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='scopes')
     # Связь с тегом (разделом)
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name='scopes')
     # Флаг основного раздела - должен быть ровно один на статью

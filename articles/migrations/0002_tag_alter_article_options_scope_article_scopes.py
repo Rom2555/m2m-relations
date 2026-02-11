@@ -58,7 +58,7 @@ class Migration(migrations.Migration):
                     "article",
                     models.ForeignKey(
                         on_delete=django.db.models.deletion.CASCADE,
-                        related_name="article_scopes",
+                        related_name="scopes",
                         to="articles.article",
                     ),
                 ),
@@ -74,12 +74,5 @@ class Migration(migrations.Migration):
             options={
                 "ordering": ["-is_main", "tag__name"],
             },
-        ),
-        migrations.AddField(
-            model_name="article",
-            name="scopes",
-            field=models.ManyToManyField(
-                related_name="articles", through="articles.Scope", to="articles.tag"
-            ),
         ),
     ]
