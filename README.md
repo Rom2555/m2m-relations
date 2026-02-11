@@ -40,27 +40,33 @@ ordering = ['-is_main', 'tag__name']
 
 ## Запуск проекта
 
-0. Создайте базу данных PostgreSQL:
+1. Клонируйте репозиторий и перейдите в директорию проекта:
+```bash
+git clone https://github.com/Rom2555/m2m-relations.git
+cd m2m-relations
+```
+
+2. Создайте базу данных PostgreSQL:
 ```bash
 createdb -U postgres netology_m2m_relations
 ```
 
-1. Установить зависимости:
+3. Установите зависимости:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Провести миграции:
+4. Проведите миграции:
 ```bash
 python manage.py migrate
 ```
 
-3. Загрузить тестовые данные:
+5. Загрузите тестовые данные:
 ```bash
 python manage.py loaddata articles.json
 ```
 
-4. Запустить сервер:
+6. Запустите сервер:
 ```bash
 python manage.py runserver
 ```
