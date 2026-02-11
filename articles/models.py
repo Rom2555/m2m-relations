@@ -47,7 +47,7 @@ class Scope(models.Model):
     Поле is_main указывает на основной раздел статьи.
     """
     # Связь с статьёй (обязательная)
-    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='scopes')
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='article_scopes')
     # Связь с тегом (разделом)
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name='scopes')
     # Флаг основного раздела - должен быть ровно один на статью
