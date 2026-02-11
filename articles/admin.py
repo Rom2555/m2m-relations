@@ -9,6 +9,7 @@ from .models import Article, Scope, Tag
 class TagAdmin(admin.ModelAdmin):
     pass
 
+
 class ScopeInlineFormset(BaseInlineFormSet):
     def clean(self):
         # Подсчитываем количество основных разделов, игнорируя удалённые
@@ -17,10 +18,11 @@ class ScopeInlineFormset(BaseInlineFormSet):
             for form in self.forms
             if not form.cleaned_data.get('DELETE', False)
         )
-        
+
         # Проверяем, что основной раздел ровно один
         if self.forms and main_count != 1:
             raise ValidationError('У статьи должен быть ровно один основной раздел')
+
 
 class ScopeInline(admin.TabularInline):
     model = Scope
@@ -30,5 +32,3 @@ class ScopeInline(admin.TabularInline):
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     inlines = [ScopeInline]
-
-
