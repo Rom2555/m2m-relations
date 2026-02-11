@@ -1,5 +1,54 @@
 [
   {
+    "model": "articles.tag",
+    "pk": 1,
+    "fields": {
+      "name": "Спорт"
+    }
+  },
+  {
+    "model": "articles.tag",
+    "pk": 2,
+    "fields": {
+      "name": "Культура"
+    }
+  },
+  {
+    "model": "articles.tag",
+    "pk": 3,
+    "fields": {
+      "name": "Политика"
+    }
+  },
+  {
+    "model": "articles.tag",
+    "pk": 4,
+    "fields": {
+      "name": "Экономика"
+    }
+  },
+  {
+    "model": "articles.tag",
+    "pk": 5,
+    "fields": {
+      "name": "Наука"
+    }
+  },
+  {
+    "model": "articles.tag",
+    "pk": 6,
+    "fields": {
+      "name": "Общество"
+    }
+  },
+  {
+    "model": "articles.tag",
+    "pk": 7,
+    "fields": {
+      "name": "Здоровье"
+    }
+  },
+  {
     "model": "articles.article",
     "pk": 1,
     "fields": {
@@ -27,6 +76,60 @@
       "text": "Лунная база должна быть международным проектом — ни одна из космических держав сегодня не может осваивать спутник Земли без помощи партнеров, заявил директор Института космических исследований РАН, член-корреспондент РАН Анатолий Петрукович.",
       "published_at": "2018-07-30T20:08:20Z",
       "image": "th_1521804489_cfyJCMV.jpg"
+    }
+  },
+  {
+    "model": "articles.scope",
+    "pk": 1,
+    "fields": {
+      "article": 1,
+      "tag": 2,
+      "is_main": true
+    }
+  },
+  {
+    "model": "articles.scope",
+    "pk": 2,
+    "fields": {
+      "article": 1,
+      "tag": 6,
+      "is_main": false
+    }
+  },
+  {
+    "model": "articles.scope",
+    "pk": 3,
+    "fields": {
+      "article": 2,
+      "tag": 5,
+      "is_main": true
+    }
+  },
+  {
+    "model": "articles.scope",
+    "pk": 4,
+    "fields": {
+      "article": 2,
+      "tag": 7,
+      "is_main": false
+    }
+  },
+  {
+    "model": "articles.scope",
+    "pk": 5,
+    "fields": {
+      "article": 3,
+      "tag": 5,
+      "is_main": true
+    }
+  },
+  {
+    "model": "articles.scope",
+    "pk": 6,
+    "fields": {
+      "article": 3,
+      "tag": 3,
+      "is_main": false
     }
   }
 ]
